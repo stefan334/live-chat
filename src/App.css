@@ -1,4 +1,5 @@
 body {
+  overflow:hidden;
   background-color: #282c34;
 }
 
@@ -92,6 +93,23 @@ button {
   display: inline-block;
   cursor: pointer;
   font-size: 1.25rem;
+}
+
+.signOut{
+  background-color: #682b44; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+  width: 20%;
+  position:fixed;
+  top:0%;
+  left:54.5%
+
 }
 
 button:disabled {

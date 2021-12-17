@@ -52,7 +52,7 @@ function SignIn(){
 
 function SignOut(){
   return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
+    <button class= "signOut" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -64,7 +64,9 @@ function ChatRoom(){
   const [messages] = useCollectionData(query, {idField: 'id'});
 
   const [formValue, setFormValue] = useState('');
-
+  const scrollIntoView = async() =>{
+    dummy.current.scrollIntoView({behavior: 'smooth'});
+  }
   const sendMessage = async(e) =>{
     e.preventDefault();
     const {uid, photoURL} = auth.currentUser;
@@ -79,12 +81,17 @@ function ChatRoom(){
     dummy.current.scrollIntoView({behavior: 'smooth'});
 
   }
+  scrollIntoView();
 
   return(
     <>
+    <SignOut></SignOut>
     <main>
+    
+    
       {messages && messages.map(msg => <ChatMessage key = {msg.id} message={msg} />)}
     <div ref= {dummy}></div>
+    
     
     </main> 
     <form onSubmit={sendMessage}>
